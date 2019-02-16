@@ -2,4 +2,4 @@ dist: xenial
 sudo: required
 
 install:
-  - ./bootstrap.sh
+  - bash -x ./bootstrap.sh
