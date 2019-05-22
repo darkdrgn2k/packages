@@ -1,0 +1,5 @@
+dist: xenial
+sudo: required
+
+install:
+- bash -x ./buildall.sh
