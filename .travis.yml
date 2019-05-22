@@ -8,6 +8,6 @@ deploy:
   api_key:
     secure: RWdCDcxxkPTGly7KK5V67e5pV7Bw2QAb1ozjlgg1ElKvbCIllTyGquRTBIdpyORUip3jbD4DM7cn/CLqm+IRMQCIwvgmHWoY6M2uvBMolM1Beo+jmHiAZi4Sj+Q2oK9yEJnjn3aq8VMjokRs7bkIKRKgzWEw1v8YXHfGcgS3kYYLlx2z17Pa2mVmyKwdnizJlZSGL5c9QUvtMRNF9mZ9/6PzA/BWgOuOglUdX4tlovG15hZxHyw05huMNiQzGRa10oRdPHqBpdFUS7MJUuTI5efJlOh3SnMF3E0LIZjZ1cymihAkYmA7guTC2zAYXSPGeNitLy8xYLPVdlSbGMqUqOhAfQ3TJ8BraW8sZRejXDSrnx0Pkfnxff1CRagFAb5Euh6mjFl0vhGrolQtS/kEgPFNxG1+EW47CSVE/Ms4CGNtKKtOo/ZalRRrWoU5m89ddAeBzkn+kq4IG9co1MbwoF1KnnONv2sMo0mZDnojOZEk+hovpctO3RcJ77uwHSMXxEbf8ETiSHgbshF/XdahVcdPZ4x0Pmlaz/gAnivVg/9xswoacsHu39A1IyLYVuyTM/2TZlynjwxpELSkUGjD1mnYG0g1fsUVcx7ObChJ4uH1YAo+qTjg4C6anIPXURLLi4RPpjQOYFhYMvZViaLZ0EauKi1CDovlkKthI9/m8z0=
   file_glob: true
-  file: "*.deb"
+  file: /*.deb
   on:
     repo: darkdrgn2k/packages
