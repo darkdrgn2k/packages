@@ -4,12 +4,12 @@ sudo: required
 install:
 - bash -x ./buildall.sh
 
-deploy:
-  provider: releases
-  overwrite: true
-  api_key: "GITHUB OAUTH TOKEN"
-  file: "FILE TO UPLOAD"
-  file_glob: true
-  file: *.deb
-  skip_cleanup: true
-  draft: true
+#deploy:
+#  provider: releases
+#  overwrite: true
+#  api_key: "GITHUB OAUTH TOKEN"
+#  file: "FILE TO UPLOAD"
+#  file_glob: true
+#  file: *.deb
+#  skip_cleanup: true
+#  draft: true
