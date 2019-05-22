@@ -12,4 +12,4 @@ for PKG in $PKGS; do
     done
 done
 
-ls -la *.deb
+mv *.deb /
