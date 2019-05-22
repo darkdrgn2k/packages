@@ -1,5 +1,5 @@
 #!/bin/bash
-GO_IPFS_VERSION="0.4.20"
+GO_IPFS_VERSION="0.4.20" 
 
 # prepare root directory
 mkdir root
