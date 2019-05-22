@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ARCHS="armhf arm64 i386 amd64"
-PKGS="althea ipfs ipfs-tomesh"
+PKGS="ipfs ipfs-tomesh"
 for PKG in $PKGS; do
 
     for ARCH in $ARCHS; do
