@@ -5,9 +5,11 @@ PKGS="ipfs ipfs-tomesh"
 for PKG in $PKGS; do
 
     for ARCH in $ARCHS; do
-        export $ARCH
+        export ARCH
         cd $PKG
         bash ./build.sh
         cd ..
     done
 done
+
+ls -la *.deb
