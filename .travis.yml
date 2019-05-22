@@ -11,4 +11,3 @@ deploy:
   file: "*.deb"
   on:
     repo: darkdrgn2k/packages
-    branch: master
