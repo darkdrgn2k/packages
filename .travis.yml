@@ -1,6 +1,6 @@
 dist: xenial
 sudo: required
-install:
+script:
 - bash -x ./buildall.sh
 deploy:
   provider: releases
