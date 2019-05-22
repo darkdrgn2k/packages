@@ -12,4 +12,4 @@ for PKG in $PKGS; do
     done
 done
 
-mv *.deb /
+pwd
