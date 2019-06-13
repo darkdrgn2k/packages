@@ -6,10 +6,8 @@ sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
 
 ARCHS="armhf arm64 i386 amd64"
-PKGS="ipfs ipfs-tomesh babeld babeld-tomesh"
+PKGS="babeld ipfs ipfs-tomesh"
 
-PKGS="babeld"
-ARCHS="i386 armhf"
 
 for PKG in $PKGS; do
 
