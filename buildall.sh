@@ -19,5 +19,3 @@ for PKG in $PKGS; do
         cd ..
     done
 done
-
-pwd
