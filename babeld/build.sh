@@ -6,10 +6,8 @@ case "$ARCH" in
   ;;
   i386)
     PKG_ARCH="386"
-    exit 0
   ;;
   armhf)
-    exit 0
     PKG_ARCH="arm";
     CC=arm-linux-gnueabihf-gc
   ;;
