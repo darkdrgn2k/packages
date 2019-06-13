@@ -3,14 +3,14 @@
 case "$ARCH" in
   amd64)
     PKG_ARCH="amd64"
-     CC=aarch64-linux-gnu
+     args="CC=aarch64-linux-gnu"
   ;;
   i386)
     PKG_ARCH="386"
   ;;
   armhf)
     PKG_ARCH="arm";
-    CC=arm-linux-gnueabihf-gc
+    args="CC=arm-linux-gnueabihf-gc"
   ;;
   arm64)
     exit 0
@@ -34,8 +34,8 @@ chmod 755 root/DEBIAN/postinst
 git clone git://github.com/jech/babeld.git tmp
 cd tmp
 sed -i "s|PREFIX = /usr/local|PREFIX = $root/root/|" Makefile
-make
-make install
+$args make
+$args make install
 cd ..
 rm -rf tmp
 
