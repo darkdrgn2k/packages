@@ -3,6 +3,7 @@
 case "$ARCH" in
   amd64)
     PKG_ARCH="amd64"
+     CC=aarch64-linux-gnu
   ;;
   i386)
     PKG_ARCH="386"
