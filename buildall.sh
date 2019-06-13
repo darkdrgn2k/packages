@@ -16,7 +16,7 @@ for PKG in $PKGS; do
     for ARCH in $ARCHS; do
         export ARCH
         cd $PKG
-        bash ./build.sh
+        bash -x ./build.sh
         cd ..
     done
 done
