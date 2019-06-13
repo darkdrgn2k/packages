@@ -3,14 +3,14 @@
 case "$ARCH" in
   amd64)
     PKG_ARCH="amd64"
-     args="CC=aarch64-linux-gnu"
+     args="CC=aarch64-linux-gnu-gcc"
   ;;
   i386)
     PKG_ARCH="386"
   ;;
   armhf)
     PKG_ARCH="arm";
-    args="CC=arm-linux-gnueabihf-gc"
+    args="CC=arm-linux-gnueabihf-gcc"
   ;;
   arm64)
     exit 0
