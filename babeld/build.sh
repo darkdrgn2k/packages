@@ -30,11 +30,8 @@ mkdir tmp
 cp -R files/* root/
 chmod 755 root/DEBIAN/postinst
 
-git clone git://github.com/jech/babeld.git /tmp/babeld/tmp
+git clone git://github.com/jech/babeld.git tmp
 cd tmp
-pwd
-ls
-
 sed -i 's|PREFIX = /usr/local|PREFIX = $(pwd)/../root/ |' Makefile
 make
 make install
@@ -53,5 +50,4 @@ rm -rf root
 mv root.deb ../BABELD-$version-$ARCH.deb
 
 # Install and cleanup
-cd ..
 rm -rf tmp
