@@ -9,7 +9,6 @@ sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 ARCHS="i386 amd64 armhf arm64"
 PKGS="babeld ipfs ipfs-tomesh"
 
-
 for PKG in $PKGS; do
 
     for ARCH in $ARCHS; do
