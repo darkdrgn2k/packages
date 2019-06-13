@@ -5,7 +5,7 @@ sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu  
 
 
-ARCHS="armhf arm64 i386 amd64"
+ARCHS="i386 amd64 armhf arm64"
 PKGS="babeld ipfs ipfs-tomesh"
 
 
