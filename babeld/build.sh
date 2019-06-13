@@ -40,7 +40,7 @@ cd ..
 rm -rf tmp
 
 # Make deb pacakges
-if [ -f "version.txt" ]; then
+if [ -f "../version.txt" ]; then
     version="$(cat ../version.txt)"
 else
     version="$(root/bin/babeld -V  2>&1)"
