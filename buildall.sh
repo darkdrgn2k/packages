@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt-get update
 sudo apt-get install -y \
     crossbuild-essential-armhf libc6-dev:armhf g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf 
     #gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf \
