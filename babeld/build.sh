@@ -11,6 +11,7 @@ case "$ARCH" in
   armhf)
     exit 0
     PKG_ARCH="arm";
+    CC=arm-linux-gnueabihf-gc
   ;;
   arm64)
     exit 0
@@ -28,6 +29,7 @@ mkdir tmp
 
 # Prepare root directory
 cp -R files/* root/
+chmod  755 root/DEBIAN/postinst
 
 git clone git://github.com/jech/babeld.git /tmp/babeld/tmp
 cd tmp
