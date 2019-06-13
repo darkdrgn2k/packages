@@ -1,8 +1,9 @@
 #!/bin/bash
 
 sudo apt-get install -y \
-    gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf \
-    gcc-aarch64-linux-gnu g++-aarch64-linux-gnu  
+    crossbuild-essential-armhf libc6-dev:armhf g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf 
+    #gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf \
+    #gcc-aarch64-linux-gnu g++-aarch64-linux-gnu  
 
 
 ARCHS="armhf arm64 i386 amd64"
