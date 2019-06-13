@@ -25,6 +25,7 @@ esac
 # Prep working directory
 mkdir root
 mkdir tmp
+root=$(pwd)
 
 # Prepare root directory
 cp -R files/* root/
@@ -32,15 +33,21 @@ chmod 755 root/DEBIAN/postinst
 
 git clone git://github.com/jech/babeld.git tmp
 cd tmp
-sed -i "s|PREFIX = /usr/local|PREFIX = $(pwd)/../root/ |" Makefile
+sed -i "s|PREFIX = /usr/local|PREFIX = $root/root/ |" Makefile
 make
 make install
 cd ..
 rm -rf tmp
 
 # Make deb pacakges
-version="$(root/bin/babeld -V  2>&1)"
-version=${version:7}
+if [ -f "version.txt" ]; then
+    version="$(cat ../version.txt)"
+else
+    version="$(root/bin/babeld -V  2>&1)"
+    version=${version:7}
+    echo $version > ../version.txt
+fi
+
 echo "Version: $version" >> root/DEBIAN/control
 #echo "Architecture: $( dpkg --print-architecture)" >> root/DEBIAN/control
 echo Architecture: $ARCH >> root/DEBIAN/control
