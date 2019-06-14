@@ -37,7 +37,7 @@ make $args
 make install $args 
 cd ..
 
-chown -R root.root root
+sudo chown -R root.root root
 rm -rf tmp
 
 # Make deb pacakges
