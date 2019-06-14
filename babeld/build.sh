@@ -55,7 +55,7 @@ echo Architecture: $ARCH >> root/DEBIAN/control
 
 dpkg-deb --build root
 rm -rf root
-mv root.deb ../BABELD-$version-$ARCH.deb
+mv root.deb ../babeld-$version-$ARCH.deb
 
 # Install and cleanup
 rm -rf tmp
