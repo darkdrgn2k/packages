@@ -36,6 +36,8 @@ sed -i "s|PREFIX = /usr/local|PREFIX = $root/root/|" Makefile
 make $args
 make install $args 
 cd ..
+
+chown -R root.root root
 rm -rf tmp
 
 # Make deb pacakges
