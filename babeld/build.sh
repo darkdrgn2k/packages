@@ -12,7 +12,6 @@ case "$ARCH" in
     args="CC=arm-linux-gnueabihf-gcc"
   ;;
   arm64)
-    exit 0
     PKG_ARCH="arm64";
     args="CC=aarch64-linux-gnu-gcc"
   ;;
