@@ -21,7 +21,7 @@ deploy:
       repo: darkdrgn2k/packages
   provider: script
   skip_cleanup: true
-  script: rsync -r --delete-after --quiet /home/travis/build/darkdrgn2k/packages/*.deb tomeshdeb@198.98.49.249:/home/tomeshdeb/deb
+  script: rsync -r --delete-after --quiet /home/travis/build/darkdrgn2k/packages/*.deb tomeshdeb@198.98.49.249:/home/tomeshdeb/deb && ssh tomeshdeb@198.98.49.249 "./updateRepo"
   on:
     repo: darkdrgn2k/packages
 #    branch: master
