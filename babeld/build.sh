@@ -37,7 +37,6 @@ make $args
 make install $args 
 cd ..
 
-sudo chown -R root.root root
 rm -rf tmp
 
 # Make deb pacakges
@@ -53,8 +52,9 @@ echo "Version: $version" >> root/DEBIAN/control
 #echo "Architecture: $( dpkg --print-architecture)" >> root/DEBIAN/control
 echo Architecture: $ARCH >> root/DEBIAN/control
 
+sudo chown -R root.root root
 dpkg-deb --build root
-rm -rf root
+sudo rm -rf root
 mv root.deb ../babeld-$version-$ARCH.deb
 
 
