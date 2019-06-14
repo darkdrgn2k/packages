@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 ExecStartPre=-/usr/bin/rm /var/run/babeld.pid
-ExecStart=/usr/local/bin/babeld -G 999 -c /etc/babeld.conf -L /var/log/babeld.log wg0
+ExecStart=/bin/babeld -G 999 -c /etc/babeld.conf -L /var/log/babeld.log wg0
 ExecStop=/bin/kill -s QUIT $MAINPID
 Restart=on-failure
 RestartSec=10s
