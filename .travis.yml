@@ -1,7 +1,7 @@
 dist: xenial
 sudo: required
 addons:
-  ssh_known_hosts: SHA256:yN/hXqnVBQAYP+T2TRDRnFSsvP4SXraKRm4ohukV/Ps.
+  ssh_known_hosts: 198.98.49.249
 script:
 - bash -x ./buildall.sh
 before_deploy:
