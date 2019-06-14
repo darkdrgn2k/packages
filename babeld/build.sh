@@ -1,4 +1,5 @@
 #!/bin/bash
+
 case "$ARCH" in
   amd64)
     PKG_ARCH="amd64"
