@@ -8,7 +8,7 @@ sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
 ARCHS="i386 amd64 armhf arm64 noarch"
 PKGS="babeld ipfs ipfs-tomesh"
-PKGS="babeld"
+PKGS="babeld babeld-tomesh confset"
 
 for PKG in $PKGS; do
 
