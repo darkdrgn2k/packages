@@ -3,4 +3,4 @@ Maintainer: Darkdrgn2k
 Description: "Babled Tomesh package"
 Section: "mesh"
 Priority: "optional"
-Depends: babeld
+Depends: babeld, confset
