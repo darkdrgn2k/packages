@@ -1,8 +1,8 @@
 #!/bin/bash
 
 case "$ARCH" in
-  any)
-    PKG_ARCH="any"
+  all)
+    PKG_ARCH="all"
   ;;
   *)
     exit 0
