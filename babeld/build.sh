@@ -16,8 +16,7 @@ case "$ARCH" in
     args="CC=aarch64-linux-gnu-gcc"
   ;;
   *)
-    echo "Unknown Arch"
-    exit 1
+    exit 0
   ;;
 esac
 
@@ -56,7 +55,6 @@ sudo chown -R root.root root
 dpkg-deb --build root
 sudo rm -rf root
 mv root.deb ../babeld-$version-$ARCH.deb
-
 
 # Install and cleanup
 rm -rf tmp

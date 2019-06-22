@@ -1,12 +1,12 @@
 #!/bin/bash
-# crossbuild-essential-armhf libc6-dev:armhf g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf 
+# crossbuild-essential-armhf libc6-dev:armhf g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf
 
 sudo apt-get update
-sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf 
-sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu  
+sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
+sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
 
-ARCHS="i386 amd64 armhf arm64"
+ARCHS="i386 amd64 armhf arm64 noarch"
 PKGS="babeld ipfs ipfs-tomesh"
 PKGS="babeld"
 
