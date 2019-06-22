@@ -1,8 +1,8 @@
 #!/bin/bash
 
 case "$ARCH" in
-  noarch)
-    PKG_ARCH="noarch"
+  any)
+    PKG_ARCH="any"
   ;;
   *)
     exit 0
