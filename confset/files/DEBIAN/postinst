@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Attempt to find eth0's mac address even if predictive naming is on
+if [ -f "/sys/class/net/eth0/address" ]; then
+    mac=$(cat /sys/class/net/eth0/address )
+else
+   if ! [ -z "$(sudo dmesg | grep eth0 | grep renamed | awk '{print $8}') | grep eth0" ]; then
+       mac=$(cat /sys/class/net/$(sudo dmesg | grep eth0 | grep renamed | awk '{print $5}' | tr -d \: )/address);
+   fi
+fi
+
+# Generate IPv4 address from mac address
+# Taken from Pitmesh's model
+if ! [ -z $mac ]; then
+  ip2=$(printf "%d" "0x$(echo $mac | cut -f 4 -d \:)")
+  ip3=$(printf "%d" "0x$(echo $mac | cut -f 5 -d \:)")
+  ip4=$(printf "%d" "0x$(echo $mac | cut -f 6 -d \:)")
+  ip2=$(expr $ip2 % 32 + 96)
+  ip4=$(expr $ip4 - $(expr $ip4 % 64 - $ip4 % 32))
+  IPV4="10.$ip2.$ip3.$ip4"
+  
+  sudo confset general ipv4 "$IPV4" /etc/mesh.conf
+
+fi
