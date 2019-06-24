@@ -1,0 +1,5 @@
+Package: aether-br
+Maintainer: Darkdrgn2k
+Description: "Aether backend software"
+Section: "dweb"
+Priority: "optional"

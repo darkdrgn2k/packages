@@ -5,10 +5,15 @@ sudo apt-get update
 sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
+wget https://dl.google.com/go/go1.11.linux-arm64.tar.gz 
+sudo tar -C /usr/local -xzf
+
+GOROOT=/usr/local/go
+
 
 ARCHS="i386 amd64 armhf arm64 all"
 #PKGS="babeld ipfs ipfs-tomesh"
-PKGS="babeld babeld-tomesh confset"
+PKGS="aether babeld babeld-tomesh confset"
 
 for PKG in $PKGS; do
 
