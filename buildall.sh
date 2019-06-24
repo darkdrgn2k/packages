@@ -6,7 +6,8 @@ sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu
 
 wget https://dl.google.com/go/go1.11.linux-arm64.tar.gz 
-sudo tar -C /usr/local -xzf
+sudo tar -C /usr/local -xzf go1.11.linux-arm64.tar.gz
+rm -rf go1.11.linux-arm64.tar.gz
 
 GOROOT=/usr/local/go
 
