@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+set -e
+
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Install confset
+source shared/confset/install
+
+sudo cp "$BASE_DIR/yggdrasil-setup" "/usr/local/sbin/yggdrasil-setup"
+sudo mkdir /etc/systemd/system/yggdrasil.service.d || true
+sudo cp "$BASE_DIR/yggdrasil-iptunnel.service" /etc/systemd/system/yggdrasil.service.d/iptunnel.conf
+
+# Enable tunnel routing in config file
+sudo sed -i "/TunnelRouting\:/,/^\[/{s/Enable: false/Enable: true/;}" /etc/yggdrasil.conf
+
+sudo chmod a+x /usr/local/sbin/yggdrasil-setup
+
+sudo systemctl daemon-reload

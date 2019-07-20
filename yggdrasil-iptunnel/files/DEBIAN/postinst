@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if ! [ -f "/etc/yggdrasil.conf"]; then
+    systemctl start yggdrasil
+    systemctl stop yggdrasil
+fi
+
+# Enable tunnel routing in config file
+sudo sed -i "/TunnelRouting\:/,/^\[/{s/Enable: false/Enable: true/;}" /etc/yggdrasil.conf
+
+sudo chmod a+x /usr/sbin/yggdrasil-setup
+
+systemctl daemon-reload

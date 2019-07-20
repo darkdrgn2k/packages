@@ -1,0 +1,6 @@
+Package: yggdrasil-iptunnel
+Maintainer: Darkdrgn2k
+Description: "Yggdasil scripts to enable CKR exit node clients and servers easly"
+Section: "mesh"
+Priority: "optional"
+Depends: yggdrasil, confset
