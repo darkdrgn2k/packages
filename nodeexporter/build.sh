@@ -20,7 +20,7 @@ case "$ARCH" in
   ;;
 esac
 
-node_exporter-0.18.1.linux-arm64.tar.gz
+#node_exporter-0.18.1.linux-arm64.tar.gz
 
 
 
@@ -54,8 +54,6 @@ EOF
 
 cat << EOF  > root/DEBIAN/postinst
 # Post install script
-adduser ipfs
-sudo chown ipfs:ipfs root/usr/bin/ipfs
 sudo chown root:staff root/usr/bin/node_exporter
 
 sudo systemctl daemon-reload
