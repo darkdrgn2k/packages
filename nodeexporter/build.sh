@@ -22,8 +22,6 @@ esac
 
 #node_exporter-0.18.1.linux-arm64.tar.gz
 
-
-
 # prepare root directory
 mkdir root
 mkdir tmp
