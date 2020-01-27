@@ -8,23 +8,19 @@ case "$ARCH" in
    exit 0
   ;;
   armhf)
-   exit 0
+     args="CC=arm-linux-gnueabihf-gcc"
+     args="CXX=arm-linux-gnueabihf-g++"
   ;;
-  arm64)
-    exit 0
+ arm64)
+     export CC="aarch64-linux-gnu-gcc"
+     export CXX="aarch64-linux-gnu-g++"
   ;;
   *)
     exit 0
   ;;
 esac
 
-$version=0.0.1
-
-## Move into main build
-NODEJS_PREFIX=10
-NODEJS_VERSION="$NODEJS_PREFIX.15.3"
-curl -sL https://deb.nodesource.com/setup_$NODEJS_PREFIX.x | sudo -E bash -
-apt-get install -y nodejs
+version=0.0.1
 
 # Prep working directory
 mkdir root
@@ -37,11 +33,14 @@ chmod 755 root/DEBIAN/postinst
 sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake
 
 cd root
-sudo sudo npm install ssb-server --prefix `pwd` --global
+sudo sudo npm install ssb-server --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global
+
 cd ..
 
 sudo chown -R root.root root
 
+echo "Version: $version" >> root/DEBIAN/control
+echo Architecture: $ARCH >> root/DEBIAN/control
 dpkg-deb --build root
 sudo rm -rf root
 mv root.deb ../ssb-$version-$ARCH.deb
