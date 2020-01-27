@@ -35,7 +35,7 @@ for PKG in $PKGS; do
     for ARCH in $ARCHS; do
         export ARCH
         cd $PKG
-        bash -x ./build.sh
+        sudo bash -x ./build.sh
         cd ..
     done
 done
