@@ -13,8 +13,8 @@ GOROOT=/usr/local/go
 
 
 ARCHS="i386 amd64 armhf arm64 all"
-#PKGS="ipfs ipfs-tomesh"
-PKGS="babeld babeld-tomesh confset yggdrasil-iptunnel aether"
+PKGS="ssb"
+#PKGS="babeld babeld-tomesh confset yggdrasil-iptunnel aether"
 
 for PKG in $PKGS; do
 
