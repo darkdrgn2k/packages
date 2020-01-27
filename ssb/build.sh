@@ -17,6 +17,9 @@ case "$ARCH" in
     exit 0
   ;;
 esac
+
+$version=0.0.1
+
 ## Move into main build
 NODEJS_PREFIX=10
 NODEJS_VERSION="$NODEJS_PREFIX.15.3"
@@ -25,18 +28,17 @@ apt-get install -y nodejs
 
 # Prep working directory
 mkdir root
-mkdir tmp
 root=$(pwd)
 
 # Prepare root directory
 cp -R files/* root/
 chmod 755 root/DEBIAN/postinst
 
-
-
 sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake
-sudo sudo npm install ssb-server
-rm -rf tmp
+
+cd root
+sudo sudo npm install ssb-server --prefix `pwd` --global
+cd ..
 
 sudo chown -R root.root root
 

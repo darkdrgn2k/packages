@@ -1,0 +1,6 @@
+Package: ssb
+Maintainer: Darkdrgn2k
+Description: "Babled Tomesh package"
+Section: "dweb"
+Priority: "optional"
+Depends: babeld, confset
