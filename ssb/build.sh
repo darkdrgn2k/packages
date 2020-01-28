@@ -8,8 +8,8 @@ case "$ARCH" in
    exit 0
   ;;
   armhf)
-     args="CC=arm-linux-gnueabihf-gcc"
-     args="CXX=arm-linux-gnueabihf-g++"
+     export CC="CC=arm-linux-gnueabihf-gcc"
+     export CXX="CXX=arm-linux-gnueabihf-g++"
   ;;
  arm64)
      export CC="aarch64-linux-gnu-gcc"
