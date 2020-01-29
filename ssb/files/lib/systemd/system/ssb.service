@@ -4,8 +4,8 @@ Wants=network.target
 After=network.target
 
 [Service]
-User=root
-Group=root
+User=ssb-server
+Group=ssb-server
 Type=simple
 ExecStart=/bin/ssb-server start
 ExecStop=/bin/kill -s QUIT $MAINPID
