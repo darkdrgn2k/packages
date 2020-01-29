@@ -10,10 +10,12 @@ case "$ARCH" in
   armhf)
      export CC="CC=arm-linux-gnueabihf-gcc"
      export CXX="CXX=arm-linux-gnueabihf-g++"
+     exit 0
   ;;
  arm64)
      export CC="aarch64-linux-gnu-gcc"
      export CXX="aarch64-linux-gnu-g++"
+     exit 0
   ;;
   *)
     exit 0
