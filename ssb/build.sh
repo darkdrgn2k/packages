@@ -35,7 +35,7 @@ chmod 755 root/DEBIAN/postinst
 sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake
 
 cd root
-sudo sudo npm install ssb-server --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perms
+sudo sudo sudo npm install ssb-server --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perms
 
 cd ..
 
