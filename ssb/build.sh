@@ -39,11 +39,12 @@ sudo sudo npm install ssb-server --target_arch=$ARCH --target_platform=linux --p
 
 cd ..
 
-sudo chown -R root.root root
-
 echo "Version: $version" >> root/DEBIAN/control
 echo Architecture: $ARCH >> root/DEBIAN/control
+sudo chown -R root.root root
+
 dpkg-deb --build root
+
 sudo rm -rf root
 mv root.deb ../ssb-$version-$ARCH.deb
 
