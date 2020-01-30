@@ -35,8 +35,8 @@ chmod 755 root/DEBIAN/postinst
 sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake
 
 cd root
-sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perms sodium-native@2.4.2
-sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perms ssb-server
+#sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perms sodium-native@2.4.2
+npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perms ssb-server
 
 cd ..
 
