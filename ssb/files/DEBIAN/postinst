@@ -1,0 +1,8 @@
+#!/bin/bash
+
+adduser --system ssb-server
+addgroup ssb-server
+
+systemctl daemon-reload
+systemctl enable ssb.service
+systemctl start ssb.service
