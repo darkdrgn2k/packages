@@ -5,14 +5,19 @@ case "$ARCH" in
     PKG_ARCH="amd64"
   ;;
   i386)
+   exit 0
+
   ;;
   armhf)
      export CC="CC=arm-linux-gnueabihf-gcc"
      export CXX="CXX=arm-linux-gnueabihf-g++"
+     exit 0
   ;;
  arm64)
      export CC="aarch64-linux-gnu-gcc"
      export CXX="aarch64-linux-gnu-g++"
+
+     exit 0
   ;;
   *)
     exit 0
@@ -32,8 +37,8 @@ chmod 755 root/DEBIAN/postinst
 sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake
 
 cd root
-sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perms sodium-native@2.4.2
-sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perms ssb-server
+#sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perms sodium-native@2.4.2
+npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perms ssb-server
 
 cd ..
 

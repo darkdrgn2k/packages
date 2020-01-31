@@ -21,17 +21,13 @@ sudo apt-get install -y nodejs
 # I think some stuff for SSB
 sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 
-
-
 GOROOT=/usr/local/go
 
-
 ARCHS="i386 amd64 armhf arm64 all"
-PKGS="ssb"
-#PKGS="babeld babeld-tomesh confset yggdrasil-iptunnel aether"
+
+PKGS="babeld babeld-tomesh confset yggdrasil-iptunnel ssb aether"
 
 for PKG in $PKGS; do
-
     for ARCH in $ARCHS; do
         export ARCH
         cd $PKG
