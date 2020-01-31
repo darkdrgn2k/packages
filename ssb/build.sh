@@ -6,6 +6,7 @@ case "$ARCH" in
   ;;
   i386)
    exit 0
+
   ;;
   armhf)
      export CC="CC=arm-linux-gnueabihf-gcc"
@@ -15,6 +16,7 @@ case "$ARCH" in
  arm64)
      export CC="aarch64-linux-gnu-gcc"
      export CXX="aarch64-linux-gnu-g++"
+
      exit 0
   ;;
   *)

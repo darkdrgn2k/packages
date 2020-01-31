@@ -24,6 +24,7 @@ sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 GOROOT=/usr/local/go
 
 ARCHS="i386 amd64 armhf arm64 all"
+
 PKGS="babeld babeld-tomesh confset yggdrasil-iptunnel ssb aether"
 
 for PKG in $PKGS; do
