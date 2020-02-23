@@ -24,7 +24,7 @@ case "$ARCH" in
   ;;
 esac
 
-version=0.0.1
+version=0.0.2
 
 # Prep working directory
 mkdir root
