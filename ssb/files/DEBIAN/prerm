@@ -1,3 +1,2 @@
 systemctl stop ssb.service
 systemctl disable ssb.service
-systemctl daemon-reload
