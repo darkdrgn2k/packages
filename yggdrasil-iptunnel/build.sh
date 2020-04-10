@@ -18,7 +18,7 @@ root=$(pwd)
 cp -R files/* root/
 chmod 755 root/DEBIAN/postinst
 
-version=1
+version="1.1"
 
 # Make deb pacakges
 echo "Version: $version" >> root/DEBIAN/control
