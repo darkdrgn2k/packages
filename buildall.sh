@@ -38,12 +38,16 @@ sudo cp -a 1/. /opt/rpifs
 sudo ls -la /opt/rpifs
 sudo umount 1
 
-sudo mount --bind /dev /opt/rpifs/dev/
-sudo mount --bind /sys /opt/rpifs/sys/
-sudo mount --bind /proc /opt/rpifs/proc/
-sudo mount --bind /dev/pts /opt/rpifs/dev/pts
+#sudo mount --bind /dev /opt/rpifs/dev/
+#sudo mount --bind /sys /opt/rpifs/sys/
+#sudo mount --bind /proc /opt/rpifs/proc/
+#sudo mount --bind /dev/pts /opt/rpifs/dev/pts
 
 # Install NodeJS in RPIFS
+mkdir -p $chroot/dev
+mknod $chroot/dev/urandom c 1 9
+chmod 0666 $chroot/dev/urandom
+
 (cd /opt/rpifs
 cat << EOF | sudo chroot . 
 sudo rm -rf /etc/ld.so.preload 
