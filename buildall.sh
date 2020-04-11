@@ -23,6 +23,12 @@ sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 
 GOROOT=/usr/local/go
 
+# Install Vagrant for NATIVE compile
+
+sudo apt-get install -y virtualbox --fix-missing
+sudo wget -nv https://dl.bintray.com/mitchellh/vagrant/vagrant_1.7.2_x86_64.deb
+sudo dpkg -i vagrant_1.7.2_x86_64.deb  
+  
 ARCHS="i386 amd64 armhf arm64 all"
 
 PKGS="babeld babeld-tomesh confset yggdrasil-iptunnel ssb aether"
