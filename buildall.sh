@@ -44,9 +44,9 @@ sudo umount 1
 #sudo mount --bind /dev/pts /opt/rpifs/dev/pts
 
 # Install NodeJS in RPIFS
-mkdir -p $chroot/dev
-mknod $chroot/dev/urandom c 1 9
-chmod 0666 $chroot/dev/urandom
+mkdir -p /opt/rpifs/dev
+mknod /opt/rpifs/dev/urandom c 1 9
+chmod 0666 /opt/rpifs/dev/urandom
 
 (cd /opt/rpifs
 cat << EOF | sudo chroot . 
