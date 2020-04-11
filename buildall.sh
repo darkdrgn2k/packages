@@ -24,9 +24,11 @@ sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 GOROOT=/usr/local/go
 
 # FS
-sudo apt-get install qemu qemu-user-static binfmt-support
-wget https://downloads.raspberrypi.org/raspbian_lite_latest -O rip.zip
-unzip rip.zip
+if ! [ -f "020-02-13-raspbian-buster-lite.img " ]; then
+  sudo apt-get install qemu qemu-user-static binfmt-support
+  wget https://downloads.raspberrypi.org/raspbian_lite_latest -O rip.zip
+  unzip rip.zip
+fi
 SECTORSTART=532480
 sudo mkdir 1
 sudo mount -o loop,offset=$((512*$SECTORSTART)) 2020-02-13-raspbian-buster-lite.img 1
@@ -50,7 +52,7 @@ sudo touch /etc/ld.so.preload
 NODEJS_PREFIX=10
 NODEJS_VERSION="$NODEJS_PREFIX.15.3"
 curl -sL https://deb.nodesource.com/setup_$NODEJS_PREFIX.x | sudo -E bash -
-sudo apt-get install -y nodejs npm
+sudo apt-get install -y nodejs
 sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake haveged
 exit
 EOF
