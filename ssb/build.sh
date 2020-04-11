@@ -39,12 +39,13 @@ sudo apt-get install -y socat python-dev libtool python-setuptools autoconf auto
 
 cd root
 #sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true sodium-native@2.4.2
-sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true ssb-server
+#--target_arch=$ARCH --target_platform=linux 
+sudo sudo npm install --prefix `pwd` --global --unsafe-perm=true ssb-server
 cd ..
 exit
 EOF
 )
-cp -r $chroot/root/* root
+sudo cp -r /opt/rpifs/root/* root
 
 echo "Version: $version" >> root/DEBIAN/control
 echo Architecture: $ARCH >> root/DEBIAN/control
