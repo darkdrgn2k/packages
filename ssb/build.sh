@@ -34,12 +34,11 @@ mkdir root
 cat << EOF | sudo chroot . 
 
 sudo mkdir root
-sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake
 
 cd root
 #sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true sodium-native@2.4.2
 #--target_arch=$ARCH --target_platform=linux 
-sudo sudo npm install --prefix `pwd` --global --unsafe-perm=true ssb-server
+npm install --prefix `pwd` --global --unsafe-perm=true ssb-server
 cd ..
 exit
 EOF
