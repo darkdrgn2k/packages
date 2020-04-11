@@ -30,6 +30,7 @@ chmod 755 root/DEBIAN/postinst
 
 
 current=`pwd`;
+mkdir root
 
 if ! [ -z "$chroot" ]; then
     cd $chroot
@@ -47,7 +48,7 @@ cd ..
 
 if ! [ -z "$chroot" ]; then    
     exit
-    cp -r $chroot/root/ $currnet/root/
+    cp -r $chroot/root/. $currnet/root
     rm -rf $chroot/root
 fi
 
