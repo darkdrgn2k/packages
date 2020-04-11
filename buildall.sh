@@ -1,7 +1,7 @@
 #!/bin/bash
 # crossbuild-essential-armhf libc6-dev:armhf g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf
 
-sudo apt-get update
+sudo apt-get update unzip
 sudo apt-get install curl
 sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf # ARM  Cross COmpiler
 sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu  # ARM64 Cross Compiler
@@ -16,7 +16,7 @@ NODEJS_PREFIX=10
 NODEJS_VERSION="$NODEJS_PREFIX.15.3"
 curl -sL https://deb.nodesource.com/setup_$NODEJS_PREFIX.x | sudo -E bash -
 sleep 1
-sudo apt-get install -y nodejs
+sudo apt-get install -y nodejs npm
 
 # I think some stuff for SSB
 sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
@@ -45,7 +45,7 @@ sudo touch /etc/ld.so.preload
 NODEJS_PREFIX=10
 NODEJS_VERSION="$NODEJS_PREFIX.15.3"
 curl -sL https://deb.nodesource.com/setup_$NODEJS_PREFIX.x | sudo -E bash -
-sudo apt-get install -y nodejs
+sudo apt-get install -y nodejs npm
 sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake
 exit
 EOF
