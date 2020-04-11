@@ -45,9 +45,9 @@ sudo umount 1
 #sudo mount --bind /dev/pts /opt/rpifs/dev/pts
 
 # Install NodeJS in RPIFS
-mkdir -p /opt/rpifs/dev
-mknod /opt/rpifs/dev/urandom c 1 9
-chmod 0666 /opt/rpifs/dev/urandom
+sudo mkdir -p /opt/rpifs/dev
+sudo mknod /opt/rpifs/dev/urandom c 1 9
+sudo chmod 0666 /opt/rpifs/dev/urandom
 
 (cd /opt/rpifs
 cat << EOF | sudo chroot . 
@@ -79,9 +79,9 @@ sudo cp /usr/bin/qemu-arm-static /opt/armbianfs/usr/bin  #Allow chroot
 sudo umount 1
 
 # Install NodeJS 
-mkdir -p /opt/armbianfs/dev
-mknod /opt/armbianfs/dev/urandom c 1 9
-chmod 0666 /opt/armbianfs/dev/urandom
+sudo mkdir -p /opt/armbianfs/dev
+sudo mknod /opt/armbianfs/dev/urandom c 1 9
+sudo chmod 0666 /opt/armbianfs/dev/urandom
 
 (cd /opt/armbianfs
 cat << EOF | sudo chroot . 
