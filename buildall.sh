@@ -27,6 +27,7 @@ ARCHS="i386 amd64 armhf arm64 all"
 
 PKGS="babeld babeld-tomesh confset yggdrasil-iptunnel ssb aether"
 PKGS="ssb"
+ARCHS="armhf"
 
 for PKG in $PKGS; do
     for ARCH in $ARCHS; do
