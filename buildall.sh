@@ -29,10 +29,9 @@ unzip rip.zip
 SECTORSTART=532480
 sudo mkdir 1
 sudo mount -o loop,offset=$((512*$SECTORSTART)) 2020-02-13-raspbian-buster-lite.img 1
-
 sudo cp /usr/bin/qemu-arm-static 1/usr/bin  #Allow chroot
 sudo mkdir /opt/rpifs
-sudo cp /1/ /opt/rpifs
+sudo cp 1/ /opt/rpifs
 sudo ls -la /opt/rpifs
 sudo umount 1
 
