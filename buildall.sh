@@ -24,18 +24,19 @@ sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 GOROOT=/usr/local/go
 
 sudo apt-get install qemu qemu-user-static binfmt-support
-# FS
-if ! [ -f "2020-02-13-raspbian-buster-lite.img "]; then
+
+# ARM32 - Using Raspberry Pi Image
+if ! [ -f "2020-02-13-raspbian-buster-lite.img" ]; then
   wget https://downloads.raspberrypi.org/raspbian_lite_latest -O rip.zip
   unzip rip.zip
 fi
 SECTORSTART=532480
 sudo mkdir 1
 sudo mount -o loop,offset=$((512*$SECTORSTART)) 2020-02-13-raspbian-buster-lite.img 1
-sudo cp /usr/bin/qemu-arm-static 1/usr/bin  #Allow chroot
 sudo mkdir /opt/rpifs
 sudo cp -a 1/. /opt/rpifs
 sudo ls -la /opt/rpifs
+sudo cp /usr/bin/qemu-arm-static /opt/rpifs/usr/bin  #Allow chroot
 sudo umount 1
 
 #sudo mount --bind /dev /opt/rpifs/dev/
@@ -62,11 +63,45 @@ exit
 EOF
 )
 
+# ARM64 - Using Rock64 Image
+if ! [ -f "Armbian_20.02.1_Rock64_buster_legacy_4.4.213.img" ]; then
+  sudo apt-get install p7zip
+  wget wget https://dl.armbian.com/rock64/archive/Armbian_20.02.1_Rock64_buster_legacy_4.4.213.7z -O Armbian_20.02.1_Rock64_buster_legacy_4.4.213.7z
+  7zr x Armbian_20.02.1_Rock64_buster_legacy_4.4.213.7z
+fi
+SECTORSTART=32768
+sudo mkdir 1
+sudo mount -o loop,offset=$((512*$SECTORSTART)) Armbian_20.02.1_Rock64_buster_legacy_4.4.213.img 1
+sudo mkdir /opt/armbianfs
+sudo cp -a 1/. /opt/armbianfs
+sudo ls -la /opt/armbianfs
+sudo cp /usr/bin/qemu-arm-static /opt/armbianfs/usr/bin  #Allow chroot
+sudo umount 1
+
+# Install NodeJS 
+mkdir -p /opt/armbianfs/dev
+mknod /opt/armbianfs/dev/urandom c 1 9
+chmod 0666 /opt/armbianfs/dev/urandom
+
+(cd /opt/armbianfs
+cat << EOF | sudo chroot . 
+sudo rm -rf /etc/ld.so.preload 
+sudo touch /etc/ld.so.preload 
+
+NODEJS_PREFIX=10
+NODEJS_VERSION="$NODEJS_PREFIX.15.3"
+curl -sL https://deb.nodesource.com/setup_$NODEJS_PREFIX.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake haveged
+exit
+EOF
+)
+
 ARCHS="i386 amd64 armhf arm64 all"
 
 PKGS="babeld babeld-tomesh confset yggdrasil-iptunnel ssb aether"
 PKGS="ssb"
-ARCHS="armhf"
+ARCHS="armhf arm64"
 
 for PKG in $PKGS; do
     for ARCH in $ARCHS; do
