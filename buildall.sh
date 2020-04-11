@@ -85,8 +85,8 @@ sudo mknod /opt/armbianfs/dev/urandom c 1 9
 sudo chmod 0666 /opt/armbianfs/dev/urandom
 
 (cd /opt/armbianfs
-ls -la
-ls -la usr/bin
+ls -la bin
+ls -la bin/bash
 cat << EOF | sudo chroot . 
 sudo rm -rf /etc/ld.so.preload 
 sudo touch /etc/ld.so.preload 
