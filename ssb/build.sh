@@ -47,7 +47,9 @@ EOF
 sudo ls -la /opt/rpifs
 sudo ls -la /opt/rpifs/root/
 
+sudo cp -r $chroot/root/* root
 sudo cp -r /opt/rpifs/root/* root
+
 
 echo "Version: $version" >> root/DEBIAN/control
 echo Architecture: $ARCH >> root/DEBIAN/control
