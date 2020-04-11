@@ -36,6 +36,11 @@ sudo cp -r 1/. /opt/rpifs
 sudo ls -la /opt/rpifs
 sudo umount 1
 
+sudo mount --bind /dev /opt/rpifs/dev/
+sudo mount --bind /sys /opt/rpifs/sys/
+sudo mount --bind /proc /opt/rpifs/proc/
+sudo mount --bind /dev/pts /opt/rpifs/dev/pts
+
 # Install NodeJS in RPIFS
 (cd /opt/rpifs
 cat << EOF | sudo chroot . 
