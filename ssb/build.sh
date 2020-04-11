@@ -42,6 +42,7 @@ cd root
 sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true ssb-server
 cd ..
 exit
+EOF
 )
 cp -r $chroot/root/* root
 
