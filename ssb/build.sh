@@ -7,8 +7,7 @@ case "$ARCH" in
   i386)
   ;;
   armhf)
-     export CC="CC=arm-linux-gnueabihf-gcc"
-     export CXX="CXX=arm-linux-gnueabihf-g++"
+     export chroot="/opt/rpifs/"
   ;;
  arm64)
      export CC="aarch64-linux-gnu-gcc"
@@ -29,13 +28,28 @@ root=$(pwd)
 cp -R files/* root/
 chmod 755 root/DEBIAN/postinst
 
+
+current=`pwd`;
+
+if ! [ -z "$chroot" ]; then
+    cd $chroot
+    sudo chroot .
+    sudo mkdir 1
+fi
+
+sudo mkdir root
 sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake
 
 cd root
 #sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true sodium-native@2.4.2
-npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true ssb-server
-
+sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true ssb-server
 cd ..
+
+if ! [ -z "$chroot" ]; then    
+    exit
+    cp -r $chroot/root/ $currnet/root/
+    rm -rf $chroot/root
+fi
 
 echo "Version: $version" >> root/DEBIAN/control
 echo Architecture: $ARCH >> root/DEBIAN/control
