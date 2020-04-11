@@ -32,13 +32,14 @@ mkdir root
 
 (cd $chroot
 cat << EOF | sudo chroot . 
+set -x 
 
 sudo mkdir ssb
-
 cd ssb
+
 #sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true sodium-native@2.4.2
 #--target_arch=$ARCH --target_platform=linux 
-sudo sudo npm install --prefix `pwd` --global --unsafe-perm=true ssb-server
+sudo sudo npm install --prefix /ssb --global --unsafe-perm=true ssb-server
 cd ..
 exit
 EOF
