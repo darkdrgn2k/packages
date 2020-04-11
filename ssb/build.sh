@@ -38,17 +38,13 @@ sudo mkdir root
 cd root
 #sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true sodium-native@2.4.2
 #--target_arch=$ARCH --target_platform=linux 
-npm install --prefix `pwd` --global --unsafe-perm=true ssb-server
+sudo sudo npm install --prefix `pwd` --global --unsafe-perm=true ssb-server
 cd ..
 exit
 EOF
 )
-sudo ls -la /opt/rpifs
-sudo ls -la /opt/rpifs/root/
-
-sudo cp -r $chroot/root/* root
-sudo cp -r /opt/rpifs/root/* root
-
+mkdir root/usr
+sudo cp -r $chroot/root/* root/usr
 
 echo "Version: $version" >> root/DEBIAN/control
 echo Architecture: $ARCH >> root/DEBIAN/control
