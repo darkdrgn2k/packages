@@ -9,8 +9,7 @@ case "$ARCH" in
      export chroot="/opt/rpifs/"
   ;;
  arm64)
-     export CC="aarch64-linux-gnu-gcc"
-     export CXX="aarch64-linux-gnu-g++"
+     export chroot="/opt/rpifs/"
   ;;
   *)
     exit 0
@@ -45,6 +44,9 @@ cd ..
 exit
 EOF
 )
+sudo ls -la /opt/rpifs
+sudo ls -la /opt/rpifs/root/
+
 sudo cp -r /opt/rpifs/root/* root
 
 echo "Version: $version" >> root/DEBIAN/control
