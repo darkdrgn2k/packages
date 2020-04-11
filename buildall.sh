@@ -38,6 +38,7 @@ sudo umount 1
 
 # Install NodeJS in RPIFS
 (cd /opt/rpifs
+cat << EOF | sudo chroot . 
 sudo chroot .
 NODEJS_PREFIX=10
 NODEJS_VERSION="$NODEJS_PREFIX.15.3"
@@ -45,6 +46,7 @@ curl -sL https://deb.nodesource.com/setup_$NODEJS_PREFIX.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake
 exit
+EOF
 )
 
 ARCHS="i386 amd64 armhf arm64 all"
