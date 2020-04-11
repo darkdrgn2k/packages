@@ -48,7 +48,7 @@ sudo cp -a $chroot/ssb/* root/usr
 
 echo "Version: $version" >> root/DEBIAN/control
 echo Architecture: $ARCH >> root/DEBIAN/control
-sudo chown -a root.root root
+sudo chown -r root.root root
 
 dpkg-deb --build root
 
