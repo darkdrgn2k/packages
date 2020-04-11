@@ -2,14 +2,16 @@
 export chroot="/"
 case "$ARCH" in
   amd64)
+      exit;
   ;;
   i386)
+      export chroot="/"
   ;;
   armhf)
      export chroot="/opt/rpifs/"
   ;;
  arm64)
-     export chroot="/opt/rpifs/"
+     export chroot="/opt/armbianfs/"
   ;;
   *)
     exit 0
