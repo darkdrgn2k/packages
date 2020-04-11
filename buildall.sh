@@ -5,6 +5,7 @@ sudo apt-get update unzip
 sudo apt-get install curl haveged
 sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf # ARM  Cross COmpiler
 sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu  # ARM64 Cross Compiler
+sudo /usr/sbin/haveged --Foreground --verbose=1 -w 1024 &
 
 # Go Dev Environment
 wget https://dl.google.com/go/go1.11.linux-arm64.tar.gz 
@@ -84,6 +85,8 @@ sudo mknod /opt/armbianfs/dev/urandom c 1 9
 sudo chmod 0666 /opt/armbianfs/dev/urandom
 
 (cd /opt/armbianfs
+ls -la
+ls -la usr/bin
 cat << EOF | sudo chroot . 
 sudo rm -rf /etc/ld.so.preload 
 sudo touch /etc/ld.so.preload 
