@@ -23,6 +23,9 @@ sudo apt-get install -y nodejs npm
 sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 
 GOROOT=/usr/local/go
+echo -----------------------
+type qemu-aarch64-static
+echo -----------------------
 
 sudo apt-get install qemu qemu-user-static binfmt-support
 
@@ -88,6 +91,7 @@ sudo chmod 0666 /opt/armbianfs/dev/urandom
 ls -la bin
 ls -la bin/bash
 cat << EOF | sudo chroot . 
+/usr/sbin/usermod --password password root # change root password otherwise sudo wont work
 sudo rm -rf /etc/ld.so.preload 
 sudo touch /etc/ld.so.preload 
 
