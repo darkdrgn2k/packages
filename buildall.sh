@@ -24,6 +24,7 @@ sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 GOROOT=/usr/local/go
 
 # FS
+sudo apt-get install qemu qemu-user-static binfmt-support
 wget https://downloads.raspberrypi.org/raspbian_lite_latest -O rip.zip
 unzip rip.zip
 SECTORSTART=532480
@@ -31,10 +32,9 @@ sudo mkdir 1
 sudo mount -o loop,offset=$((512*$SECTORSTART)) 2020-02-13-raspbian-buster-lite.img 1
 sudo cp /usr/bin/qemu-arm-static 1/usr/bin  #Allow chroot
 sudo mkdir /opt/rpifs
-sudo cp -r 1/ /opt/rpifs
+sudo cp -r 1/ /opt/rpifs/
 sudo ls -la /opt/rpifs
 sudo umount 1
-
 
 ARCHS="i386 amd64 armhf arm64 all"
 
