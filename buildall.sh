@@ -23,6 +23,21 @@ sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 
 GOROOT=/usr/local/go
 
+# FS
+wget https://downloads.raspberrypi.org/raspbian_lite_latest -O rip.zip
+unzip rip.zip
+SECTORSTART=532480
+mkdir 1
+mount -o loop,offset=$((512*$SECTORSTART)) 2020-02-13-raspbian-buster-lite.img 1
+cd 1
+cp /usr/bin/qemu-arm-static usr/bin  #Allow chroot
+mkdir /opt/rpifs
+cp . /opt/rpifs
+ls -la /opt/rpifs
+cd ..
+umount 1
+
+
 ARCHS="i386 amd64 armhf arm64 all"
 
 PKGS="babeld babeld-tomesh confset yggdrasil-iptunnel ssb aether"
