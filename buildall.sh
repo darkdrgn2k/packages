@@ -27,15 +27,15 @@ GOROOT=/usr/local/go
 wget https://downloads.raspberrypi.org/raspbian_lite_latest -O rip.zip
 unzip rip.zip
 SECTORSTART=532480
-mkdir 1
-mount -o loop,offset=$((512*$SECTORSTART)) 2020-02-13-raspbian-buster-lite.img 1
-cd 1
-cp /usr/bin/qemu-arm-static usr/bin  #Allow chroot
-mkdir /opt/rpifs
-cp . /opt/rpifs
-ls -la /opt/rpifs
-cd ..
-umount 1
+sudo mkdir 1
+sudo mount -o loop,offset=$((512*$SECTORSTART)) 2020-02-13-raspbian-buster-lite.img 1
+sudo cd 1
+sudo cp /usr/bin/qemu-arm-static usr/bin  #Allow chroot
+sudo mkdir /opt/rpifs
+sudo cp . /opt/rpifs
+sudo ls -la /opt/rpifs
+sudo cd ..
+sudo umount 1
 
 
 ARCHS="i386 amd64 armhf arm64 all"
