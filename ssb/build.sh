@@ -1,8 +1,7 @@
 #!/bin/bash
-
+export chroot="/"
 case "$ARCH" in
   amd64)
-    PKG_ARCH="amd64"
   ;;
   i386)
   ;;
@@ -32,11 +31,8 @@ chmod 755 root/DEBIAN/postinst
 current=`pwd`;
 mkdir root
 
-if ! [ -z "$chroot" ]; then
-    cd $chroot
-    sudo chroot .
-    sudo mkdir 1
-fi
+(cd $chroot
+cat << EOF | sudo chroot . 
 
 sudo mkdir root
 sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake
@@ -45,12 +41,9 @@ cd root
 #sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true sodium-native@2.4.2
 sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true ssb-server
 cd ..
-
-if ! [ -z "$chroot" ]; then    
-    exit
-    cp -r $chroot/root/. $currnet/root
-    rm -rf $chroot/root
-fi
+exit
+)
+cp -r $chroot/root/* root
 
 echo "Version: $version" >> root/DEBIAN/control
 echo Architecture: $ARCH >> root/DEBIAN/control
