@@ -33,9 +33,9 @@ mkdir root
 (cd $chroot
 cat << EOF | sudo chroot . 
 
-sudo mkdir root
+sudo mkdir ssb
 
-cd root
+cd ssb
 #sudo sudo sudo npm install --target_arch=$ARCH --target_platform=linux --prefix `pwd` --global --unsafe-perm=true sodium-native@2.4.2
 #--target_arch=$ARCH --target_platform=linux 
 sudo sudo npm install --prefix `pwd` --global --unsafe-perm=true ssb-server
@@ -44,11 +44,11 @@ exit
 EOF
 )
 mkdir root/usr
-sudo cp -r $chroot/root/* root/usr
+sudo cp -a $chroot/ssb/* root/usr
 
 echo "Version: $version" >> root/DEBIAN/control
 echo Architecture: $ARCH >> root/DEBIAN/control
-sudo chown -R root.root root
+sudo chown -a root.root root
 
 dpkg-deb --build root
 
