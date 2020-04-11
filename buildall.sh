@@ -51,7 +51,7 @@ NODEJS_PREFIX=10
 NODEJS_VERSION="$NODEJS_PREFIX.15.3"
 curl -sL https://deb.nodesource.com/setup_$NODEJS_PREFIX.x | sudo -E bash -
 sudo apt-get install -y nodejs npm
-sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake
+sudo apt-get install -y socat python-dev libtool python-setuptools autoconf automake haveged
 exit
 EOF
 )
