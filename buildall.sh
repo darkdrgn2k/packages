@@ -23,9 +23,9 @@ sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 
 GOROOT=/usr/local/go
 
+sudo apt-get install qemu qemu-user-static binfmt-support
 # FS
-if ! [ -f "020-02-13-raspbian-buster-lite.img " ]; then
-  sudo apt-get install qemu qemu-user-static binfmt-support
+if ! [ -f "2020-02-13-raspbian-buster-lite.img "]; then
   wget https://downloads.raspberrypi.org/raspbian_lite_latest -O rip.zip
   unzip rip.zip
 fi
