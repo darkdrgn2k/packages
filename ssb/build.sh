@@ -23,7 +23,7 @@ mkdir root
 root=$(pwd)
 
 # Prepare root directory
-cp -R files/* root/
+cp -a files/* root/
 chmod 755 root/DEBIAN/postinst
 
 
