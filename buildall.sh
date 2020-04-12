@@ -81,7 +81,7 @@ sudo mount -o loop,offset=$((512*$SECTORSTART)) Armbian_20.02.1_Rock64_buster_le
 sudo mkdir /opt/armbianfs
 sudo cp -a 1/. /opt/armbianfs
 sudo ls -la /opt/armbianfs
-sudo cp /usr/bin/qemu-arm-static /opt/armbianfs/usr/bin  #Allow chroot
+sudo cp /usr/bin/qemu-aarch64-static /opt/armbianfs/usr/bin  #Allow chroot
 sudo umount 1
 
 # Install NodeJS 
