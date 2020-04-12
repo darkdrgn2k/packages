@@ -24,7 +24,7 @@ sudo apt-get install -y nodejs
 sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 
 GOROOT=/usr/local/go
-sudo apt-get install qemu qemu-user-static binfmt-support
+sudo apt-get install -y qemu qemu-user-static binfmt-support
 echo -----------------------
 type qemu-aarch64-static
 echo -----------------------
