@@ -45,10 +45,10 @@ sudo ls -la /opt/rpifs
 sudo cp /usr/bin/qemu-arm-static /opt/rpifs/usr/bin  #Allow chroot
 sudo umount 1
 
-#sudo mount --bind /dev /opt/rpifs/dev/
-#sudo mount --bind /sys /opt/rpifs/sys/
-#sudo mount --bind /proc /opt/rpifs/proc/
-#sudo mount --bind /dev/pts /opt/rpifs/dev/pts
+sudo mount --bind /dev /opt/rpifs/dev/
+sudo mount --bind /sys /opt/rpifs/sys/
+sudo mount --bind /proc /opt/rpifs/proc/
+sudo mount --bind /dev/pts /opt/rpifs/dev/pts
 
 # Install NodeJS in RPIFS
 sudo mkdir -p /opt/rpifs/dev
@@ -83,6 +83,11 @@ sudo cp -a 1/. /opt/armbianfs
 sudo ls -la /opt/armbianfs
 sudo cp /usr/bin/qemu-aarch64-static /opt/armbianfs/usr/bin  #Allow chroot
 sudo umount 1
+
+sudo mount --bind /dev /opt/armbianfs/dev/
+sudo mount --bind /sys /opt/armbianfs/sys/
+sudo mount --bind /proc /opt/armbianfs/proc/
+sudo mount --bind /dev/pts /opt/armbianfs/dev/pts
 
 # Install NodeJS 
 sudo mkdir -p /opt/armbianfs/dev
