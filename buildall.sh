@@ -1,9 +1,9 @@
 #!/bin/bash
 # crossbuild-essential-armhf libc6-dev:armhf g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf
 sudo apt-get update
-sudo apt-get install unzip
-sudo apt-get install curl haveged
-sudo apt-get install libc6-dev-arm64-cross gcc-aarch64-linux-gnu 
+sudo apt-get install -y unzip
+sudo apt-get install -y curl haveged
+sudo apt-get install -y libc6-dev-arm64-cross gcc-aarch64-linux-gnu 
 sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf # ARM  Cross COmpiler
 sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu  # ARM64 Cross Compiler
 sudo /usr/sbin/haveged --Foreground --verbose=1 -w 1024 &
@@ -24,11 +24,12 @@ sudo apt-get install -y nodejs npm
 sudo apt-get install -y python-dev libtool python-setuptools autoconf automake
 
 GOROOT=/usr/local/go
+sudo apt-get install qemu qemu-user-static binfmt-support
 echo -----------------------
 type qemu-aarch64-static
 echo -----------------------
 
-sudo apt-get install qemu qemu-user-static binfmt-support
+
 
 # ARM32 - Using Raspberry Pi Image
 if ! [ -f "2020-02-13-raspbian-buster-lite.img" ]; then
