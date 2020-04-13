@@ -74,7 +74,7 @@ EOF
 if ! [ -f "Armbian_20.02.1_Orangepizeroplus2-h5_bionic_current_5.4.20_minimal.img" ]; then
   sudo apt-get install p7zip
   wget https://dl.armbian.com/orangepizeroplus2-h5/archive/Armbian_20.02.1_Orangepizeroplus2-h5_bionic_current_5.4.20_minimal.7z -O https://dl.armbian.com/orangepizeroplus2-h5/archive/Armbian_20.02.1_Orangepizeroplus2-h5_bionic_current_5.4.20_minimal.7z
-  7zr x https://dl.armbian.com/orangepizeroplus2-h5/archive/Armbian_20.02.1_Orangepizeroplus2-h5_bionic_current_5.4.20_minimal.7z
+  7zr x Armbian_20.02.1_Orangepizeroplus2-h5_bionic_current_5.4.20_minimal.7z
 fi
 SECTORSTART=8192
 sudo mkdir 1
