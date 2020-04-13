@@ -69,15 +69,27 @@ exit
 EOF
 )
 
-# ARM64 - Using Rock64 Image
-if ! [ -f "Armbian_20.02.1_Rock64_buster_legacy_4.4.213.img" ]; then
+
+# Arm64 H5+ OPI
+if ! [ -f "Armbian_20.02.1_Orangepizeroplus2-h5_bionic_current_5.4.20_minimal.img" ]; then
   sudo apt-get install p7zip
-  wget wget https://dl.armbian.com/rock64/archive/Armbian_20.02.1_Rock64_buster_legacy_4.4.213.7z -O Armbian_20.02.1_Rock64_buster_legacy_4.4.213.7z
-  7zr x Armbian_20.02.1_Rock64_buster_legacy_4.4.213.7z
+  wget https://dl.armbian.com/orangepizeroplus2-h5/archive/Armbian_20.02.1_Orangepizeroplus2-h5_bionic_current_5.4.20_minimal.7z -O https://dl.armbian.com/orangepizeroplus2-h5/archive/Armbian_20.02.1_Orangepizeroplus2-h5_bionic_current_5.4.20_minimal.7z
+  7zr x https://dl.armbian.com/orangepizeroplus2-h5/archive/Armbian_20.02.1_Orangepizeroplus2-h5_bionic_current_5.4.20_minimal.7z
 fi
-SECTORSTART=32768
+SECTORSTART=8192
 sudo mkdir 1
-sudo mount -o loop,offset=$((512*$SECTORSTART)) Armbian_20.02.1_Rock64_buster_legacy_4.4.213.img 1
+sudo mount -o loop,offset=$((512*$SECTORSTART)) Armbian_20.02.1_Orangepizeroplus2-h5_bionic_current_5.4.20_minimal.img 1
+
+# ARM64 - Using Rock64 Image
+#if ! [ -f "Armbian_20.02.1_Rock64_buster_legacy_4.4.213.img" ]; then
+#  sudo apt-get install p7zip
+#  wget wget https://dl.armbian.com/rock64/archive/Armbian_20.02.1_Rock64_buster_legacy_4.4.213.7z -O Armbian_20.02.1_Rock64_buster_legacy_4.4.213.7z
+#  7zr x Armbian_20.02.1_Rock64_buster_legacy_4.4.213.7z
+#fi
+#SECTORSTART=32768
+#sudo mkdir 1
+#sudo mount -o loop,offset=$((512*$SECTORSTART)) Armbian_20.02.1_Rock64_buster_legacy_4.4.213.img 1
+
 sudo mkdir /opt/armbianfs
 sudo cp -a 1/. /opt/armbianfs
 sudo ls -la /opt/armbianfs
