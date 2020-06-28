@@ -25,7 +25,7 @@ GOROOT=/usr/local/go
 
 ARCHS="i386 amd64 armhf arm64 all"
 
-PKGS="babeld babeld-tomesh confset yggdrasil-iptunnel ssb aether"
+PKGS="babeld babeld-tomesh confset yggdrasil-iptunnel prometheus"
 
 for PKG in $PKGS; do
     for ARCH in $ARCHS; do
