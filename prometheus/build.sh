@@ -40,7 +40,7 @@ chmod 755 root/DEBIAN/postinst
 sudo chown -R root.root root
 dpkg-deb --build root
 sudo rm -rf root
-mv root.deb ../prometheus-$version-$ARCH.deb
+mv root.deb ../prometheus-$PROMETHEUS_VERSION-$ARCH.deb
 
 # Install and cleanup
 rm -rf tmp
