@@ -1,0 +1,5 @@
+Package: prometheus
+Maintainer: Darkdrgn2k
+Description: "Prometheus server package"
+Section: "monitoring"
+Priority: "optional"
