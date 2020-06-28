@@ -36,6 +36,7 @@ echo "Version: $PROMETHEUS_VERSION" >> root/DEBIAN/control
 #echo "Architecture: $( dpkg --print-architecture)" >> root/DEBIAN/control
 echo Architecture: $ARCH >> root/DEBIAN/control
 
+chmod 755 root/DEBIAN/postinst
 sudo chown -R root.root root
 dpkg-deb --build root
 sudo rm -rf root
