@@ -1,3 +1,3 @@
 #!/bin/bash
-systemctl enable babeld
-systemctl start babeld
+systemctl enable prometheus
+systemctl start prometheus
